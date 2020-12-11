@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+    <line>
+      <![CDATA[ Description Login Validation Actual User Must looged in with usernameadmin Expected User Successfully Logged in]]>
+    </line>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="38096" started-at="2020-12-11T15:07:47Z" finished-at="2020-12-11T15:08:25Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="38096" started-at="2020-12-11T15:07:47Z" finished-at="2020-12-11T15:08:25Z">
+      <class name="testCases.ICEHRM_LoginTest">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="beforeSuite" is-config="true" duration-ms="27178" started-at="2020-12-11T20:37:47Z" finished-at="2020-12-11T20:38:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="init()[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="init" is-config="true" duration-ms="81" started-at="2020-12-11T20:38:14Z" finished-at="2020-12-11T20:38:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- init -->
+        <test-method status="PASS" signature="LoginTest()[pri:1, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="LoginTest" duration-ms="9915" started-at="2020-12-11T20:38:14Z" finished-at="2020-12-11T20:38:24Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginTest -->
+        <test-method status="PASS" signature="CheckMethod_Status(org.testng.ITestResult)[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="CheckMethod_Status" is-config="true" duration-ms="4" started-at="2020-12-11T20:38:24Z" finished-at="2020-12-11T20:38:24Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=LoginTest status=SUCCESS method=ICEHRM_LoginTest.LoginTest()[pri:1, instance:testCases.ICEHRM_LoginTest@604ed9f0] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[ Description Login Validation Actual User Must looged in with usernameadmin Expected User Successfully Logged in]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- CheckMethod_Status -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="afterSuite" is-config="true" duration-ms="889" started-at="2020-12-11T20:38:24Z" finished-at="2020-12-11T20:38:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- testCases.ICEHRM_LoginTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
