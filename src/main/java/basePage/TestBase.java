@@ -34,6 +34,7 @@ public class TestBase {
 	public static final Logger log = Logger.getLogger(TestBase.class.getName());
 	public static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
+	public Object checkMethod;
 	
 	
 	public TestBase() {
@@ -93,31 +94,11 @@ public class TestBase {
 		}
 	
 	
-	public void Reporting_Description(String ReportDesc) {
-	
-		if(ReportDesc.contains("Login")) {
-			Desc = "Login Validation";
-			Actual = "User Must looged in with username "+username;
-			PassExp = "User Successfully Logged in";
-			FailExp="Log in Failed";
-		}else if (ReportDesc.contains("Select")){
-			Desc = "Select Product Validation";
-			Actual = "User Should be able to select Product";
-			PassExp = "User Successfully select product";
-			FailExp="Unable to select product";
-		}
-		else if(ReportDesc.contains("Payment")) {
-			Desc = "Payment Validation";
-			Actual = "Payment should be succesfull";
-			PassExp = "Payment Successfully passed";
-			FailExp="Payment Failed";
-			
-		}else if(ReportDesc.contains("Logout")) {
-			Desc = "Logout Validation";
-			Actual = "User Must logged out with username"+username;
-			PassExp = "User Successfully Logged out";
-			FailExp="Log out Failed";
-		}
+	public void Reporting_Description(String ReportDesc,String ReportingActual,String ReportingPassExp,String ReportingFailexp) {
+		TestBase.Desc=ReportDesc;
+		TestBase.Actual=ReportingActual;
+		TestBase.PassExp=ReportingPassExp;
+		TestBase.FailExp = ReportingFailexp;
 
 	}
 	
@@ -136,14 +117,14 @@ public class TestBase {
 	@AfterMethod
 	public void CheckMethod_Status(ITestResult result) {
 		
-		Reporting_Description(result.getMethod().getMethodName());
-		
+		//Reporting_Description(result.getMethod().getMethodName());
+		System.out.println(prop.get("error_Reson"));
 		if(result.getStatus()==ITestResult.SUCCESS) {
 			
 			
 			String ResultRe = " Description "+Desc+" Actual "+Actual+" Expected "+PassExp;
 			log(ResultRe);
-		
+			
 			
 		}
 		else if(result.getStatus()==ITestResult.FAILURE) {

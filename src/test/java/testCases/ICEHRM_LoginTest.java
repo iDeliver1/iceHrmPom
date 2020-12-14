@@ -10,7 +10,7 @@ import utils.General_Functions;
 public class ICEHRM_LoginTest extends TestBase {
 
 	General_Functions objGen;
-	boolean checkMethod;
+	
 	
 	@BeforeClass
 	public void init() {
@@ -20,6 +20,7 @@ public class ICEHRM_LoginTest extends TestBase {
 	@Test(priority = 1)	
 	public void LoginTest() {
 		checkMethod =	objGen.ICE_HRM_Login(prop.getProperty("username"),prop.getProperty("password"));
-		Assert.assertEquals(true, checkMethod);
+		Assert.assertNotNull(checkMethod);
+		Reporting_Description("Login Validation", "User should be able to logged with username "+username, "User successfully logged in", "Logged in failed ");
 	}
 }
