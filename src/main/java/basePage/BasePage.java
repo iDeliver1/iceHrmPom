@@ -1,5 +1,7 @@
 package basePage;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-	private static  final int TIMEOUT = 5; //seconds
+	private static  final int TIMEOUT = 10; //seconds
     private  static final int POLLING = 100; //milliseconds
 
     protected WebDriver driver;
@@ -41,4 +43,21 @@ public class BasePage {
 		Actions action = new Actions(driver);
 		action.moveToElement(element).build().perform();
 	}
+    
+    protected  boolean isClickable(WebElement webe){
+    	try
+    	{ 
+    	WebDriverWait wait = new WebDriverWait(driver, 5);
+    	wait.until(ExpectedConditions.elementToBeClickable(webe));
+    	   return true;
+    	 }
+    	catch (Exception e)
+    	{
+    	return false;
+    	 }
+    } 
+    
+    public void WaitDriver() {
+    	driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+    }
 }

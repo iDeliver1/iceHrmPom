@@ -4,12 +4,14 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import basePage.TestBase;
 
@@ -24,22 +26,27 @@ public class TestUtil extends TestBase {
 	public static String brow;
 
 
-	public static String fGetCurrentDate()
+	public static String fGetCurrentDate(int date)
 	{
-		Date date = new Date();  
-	    SimpleDateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");  
-	    String strDate = dateformat.format(date); 
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DATE, date);
+	    SimpleDateFormat dateformat = new SimpleDateFormat("YYYY-mm-dd");  
+	    String strDate = dateformat.format( c.getTime()); 
 	    return strDate;
 	}
 
 		
 	//-------------------------------------------TimeStamp Function----------------------------------	
-		public static String fTimestamp()
+		public static String fTimestamp(int hour)
 			{
-				Date now = new Date();
-				SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy-hh-mm-ss");
-				String time = dateFormat.format(now);
-				return time.replace("-", "");
+				Calendar cal = Calendar.getInstance(); 
+				cal.setTime(new Date());              
+				cal.add(Calendar.HOUR_OF_DAY, hour);  
+				System.out.println(cal.getTime());
+			    SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-mm-dd HH-mm-ss");
+				String time = dateFormat.format(cal.getTime());
+				System.out.println(time);
+				return time;
 			}
 			 
 	//-----------------------------------------------Screenshot Function-------------------------------	
@@ -105,13 +112,19 @@ public class TestUtil extends TestBase {
 			
 			
 			//---------------------function for Select size --------------------
-			public static void SelectQuantity(List<WebElement> element,String size) {
+			public static void SelectLeave_type(List<WebElement> element,String LeaveFormat) {
 				for(int i=0;i<element.size();i++) {
-					if(element.get(i).getAttribute("Title").contains(size)) {
+					if(element.get(i).getAttribute("Title").contains(LeaveFormat)) {
 						element.get(i).click();
 						break;
 					}
-				}
+				}	
+				
+			}
+			
+			public static void SelectItem(WebElement element,int LeaveFormat) {
+				Select  Leave = new Select(element);
+				Leave.selectByIndex(LeaveFormat);
 			}
 
 }

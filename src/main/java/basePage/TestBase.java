@@ -26,7 +26,7 @@ import utils.WebEventListener;
 public class TestBase {
 
 	protected WebDriver driver;
-	public static String browserName = "chrome",url,Desc,Actual,PassExp,FailExp;
+	public static String browserName = "chrome",url,Desc,Actual,PassExp,FailExp,Error_Reason;
 	public String Report_Name;
 	protected String username;
 	protected String password,cause;
@@ -34,7 +34,8 @@ public class TestBase {
 	public static final Logger log = Logger.getLogger(TestBase.class.getName());
 	public static EventFiringWebDriver e_driver;
 	public static WebEventListener eventListener;
-	public Object checkMethod;
+	public Object checkobjMethod;
+	public boolean checkblnmethod;
 	
 	
 	public TestBase() {
@@ -88,9 +89,9 @@ public class TestBase {
 	public void initateURL() throws Throwable{
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		driver.get(url);
+		driver.manage().timeouts().pageLoadTimeout(2, TimeUnit.MINUTES);
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.MINUTES);
 		}
 	
 	

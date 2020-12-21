@@ -18,9 +18,31 @@ public class ICEHRM_LoginTest extends TestBase {
 	}
 
 	@Test(priority = 1)	
-	public void LoginTest() {
-		checkMethod =	objGen.ICE_HRM_Login(prop.getProperty("username"),prop.getProperty("password"));
-		Assert.assertNotNull(checkMethod);
-		Reporting_Description("Login Validation", "User should be able to logged with username "+username, "User successfully logged in", "Logged in failed ");
+	public void Login_Test() {
+		checkobjMethod =	objGen.ICE_HRM_Login(prop.getProperty("username"),prop.getProperty("password"));
+		Assert.assertNotNull(checkobjMethod);
 	}
+	
+	@Test(priority = 2,dependsOnMethods="Login_Test")	
+	public void Punch_In_Test() {
+		objGen.ICE_HRM_Homepage("Attendance");
+		checkblnmethod = objGen.ICE_HRM_AttendancePage("IN",0);
+		Assert.assertEquals(true, checkblnmethod);
+	}
+	
+	@Test(priority = 3,dependsOnMethods="Punch_In_Test")	
+	public void Leave_Test() throws InterruptedException {
+		objGen.ICE_HRM_Homepage("Leave");
+		objGen.ICE_HRM_LeavePage("Causal Leave");
+		
+	}
+	@Test(priority = 4,dependsOnMethods="Leave_Test")	
+	public void Punch_Out_Test() {
+		objGen.ICE_HRM_Homepage("Attendance");
+		checkblnmethod = objGen.ICE_HRM_AttendancePage("OUT",5);
+		Assert.assertEquals(true, checkblnmethod);
+		
+	}
+	
+	
 }
