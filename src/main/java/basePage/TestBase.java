@@ -6,20 +6,18 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
-
-
-
 import io.github.bonigarcia.wdm.WebDriverManager;
+import utils.Excel_Libraries;
+import utils.Extent_Report;
 import utils.TestUtil;
 import utils.WebEventListener;
 
@@ -59,29 +57,25 @@ public class TestBase {
 	
 	
 	@BeforeTest
-    public void beforeSuite() throws Throwable {
+    public void beforeSuite(ITestContext context) throws Throwable {
 		
 		String BrowserVersion = TestUtil.getBrowserVersion();	
 		System.out.println("Browser Version- "+BrowserVersion);
-		
-		if(browserName.equals("chrome")){
-			WebDriverManager.chromedriver().version(BrowserVersion).setup();
-			driver = new ChromeDriver(); 
-		
-		}
-		else if(browserName.equals("FF")){
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/src/main/java/com/AP/qa/driver/geckodriver.exe");	
-			driver = new FirefoxDriver(); 
-		
-		}
-
+		WebDriverManager.chromedriver().version(BrowserVersion).setup();
+		driver = new ChromeDriver(); 
 		e_driver = new EventFiringWebDriver(driver);
-		// Now create object of EventListerHandler to register it with EventFiringWebDriver
 		eventListener = new WebEventListener();
 		e_driver.register(eventListener);
 		driver = e_driver;
-		
-		
+	
+		try {
+			Excel_Libraries.createExcel(getClass().getSimpleName());
+			Extent_Report.createExcelFile(getClass().getSimpleName());
+			
+		}catch(Exception e) {
+			System.out.println(e.toString());
+		}
+	
 		initateURL();
 	}
 
@@ -102,12 +96,7 @@ public class TestBase {
 		TestBase.FailExp = ReportingFailexp;
 
 	}
-	
-	
-	public String get_Reportname(String Report) {
-		Report_Name=Report;
-		return Report_Name;
-	}
+
 	
 	public static void log(String e) {
 		Logger.getLogger(TestBase.class.getName());
@@ -116,27 +105,24 @@ public class TestBase {
 	}
 	
 	@AfterMethod
-	public void CheckMethod_Status(ITestResult result) {
-		
-		//Reporting_Description(result.getMethod().getMethodName());
-		System.out.println(prop.get("error_Reson"));
+	public void checkMethodStatus(ITestResult result) throws Throwable {
+
 		if(result.getStatus()==ITestResult.SUCCESS) {
 			
-			
+			Extent_Report.Report("Pass", Desc, Actual, PassExp);
 			String ResultRe = " Description "+Desc+" Actual "+Actual+" Expected "+PassExp;
 			log(ResultRe);
 			
 			
 		}
 		else if(result.getStatus()==ITestResult.FAILURE) {
+			Extent_Report.Report("Fail", Desc, Actual, FailExp);
 			String ResultRe = " Description "+Desc+" Actual "+Actual+" Expected "+FailExp +" due to "+cause;
 			
 			log.warning(ResultRe);
 			
 		}
 	}
-	
-	
 	
     @AfterTest
     public void afterSuite() {

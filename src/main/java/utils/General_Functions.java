@@ -24,13 +24,13 @@ public class General_Functions extends TestBase {
 	}
 
 	
-	public HomePage ICE_HRM_Login(String username, String password) {
+	public HomePage iceHrmLogin(String username, String password) {
 		objLog.setUsername(username);
 		objLog.setPassword(password);
-		objLog.Click_On_SignBtn();
+		objLog.clickOnSignBtn();
 		
 		try {
-			Assert.assertEquals(true, objLog.ValidateUser());
+			Assert.assertEquals(true, objLog.validateUser());
 			System.out.println(prop.get("error_Reson"));
 			return objHome = new HomePage(GFdriver);
 		}catch(Exception e) {
@@ -41,17 +41,17 @@ public class General_Functions extends TestBase {
 	}
 	
 	
-	public void ICE_HRM_Homepage(String TabName) {
+	public void iceHrmHomepage(String TabName) {
 		
 		if(TabName.equalsIgnoreCase("Attendance")) {
 			try {
-				objAtte =	(AttendancePage) objHome.click_onTAb(TabName);
+				objAtte =	(AttendancePage) objHome.clickOnTab(TabName);
 				}
 				catch(Exception e) {
 				}
 		}else {
 			try {
-				objLeave =(LeavePage) objHome.click_onTAb(TabName);
+				objLeave =(LeavePage) objHome.clickOnTab(TabName);
 				}
 				catch(Exception e) {
 				}
@@ -61,16 +61,17 @@ public class General_Functions extends TestBase {
 	
 	
 	
-public boolean ICE_HRM_AttendancePage(String AttendanceWay,int time) {
+public boolean iceHrmAttendancePage(String AttendanceWay,int time) {
 		
 	try {
 	switch(AttendanceWay) {
-	case "IN"  : objAtte.punch_in();
-				objAtte.PunchSystem(AttendanceWay,time);
+	
+	case "IN"  : objAtte.punchSystem(AttendanceWay,time);
+				Thread.sleep(4000);
 				return true;
 				
-	case "OUT"	:objAtte.punch_out();
-				 objAtte.PunchSystem(AttendanceWay, time);
+	case "OUT"	: objAtte.punchSystem(AttendanceWay, time);
+				 Thread.sleep(4000);
 				 return true;
 				 
 	 default : System.out.println("invalid section");
@@ -85,8 +86,8 @@ public boolean ICE_HRM_AttendancePage(String AttendanceWay,int time) {
 	
 	
 	
-	public void ICE_HRM_LeavePage(String Leave) throws InterruptedException {
-		objLeave.Applyfor_Leave(Leave);
+	public void iceHrmLeavePage(String Leave) throws InterruptedException {
+		objLeave.applyForLeave(Leave);
 		objHome.HomeBtn.click();
 	}
 	

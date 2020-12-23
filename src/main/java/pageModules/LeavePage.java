@@ -54,7 +54,7 @@ public class LeavePage extends BasePage {
 	}
 	
 	
-	public void Applyfor_Leave(String Leave) throws InterruptedException {
+	public void applyForLeave(String Leave) throws InterruptedException {
 		Thread.sleep(5000);
 		waitForElementToAppear(ApplyLeavebtn);
 		ApplyLeavebtn.click();
@@ -72,7 +72,7 @@ public class LeavePage extends BasePage {
 		}
 		
 		StartDate.sendKeys(TestUtil.fGetCurrentDate(0));
-		EndDate.sendKeys(TestUtil.fGetCurrentDate(0));
+		EndDate.sendKeys(TestUtil.fGetCurrentDate(1));
 		Continuebtn.click();
 		TestUtil.SelectItem(LeaveFormat, 1);
 		

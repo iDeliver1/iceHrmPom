@@ -7,15 +7,15 @@ import basePage.BasePage;
 
 public class LoginPage extends BasePage {
 	@FindBy(xpath = "//button[contains(text(),'Log in')]")
-	WebElement signInbtn;
+	WebElement SignInbtn;
 	
 	
 	
 	@FindBy(xpath = "//input[@id='username']")
-	WebElement user;
+	WebElement User;
 	
 	@FindBy(xpath = "//input[@id='password']")
-	WebElement password;
+	WebElement Password;
 	
 	
 	@FindBy(xpath = "//a[contains(text(),'IceHrm Employee')]")
@@ -28,21 +28,21 @@ public class LoginPage extends BasePage {
 	
 	
 	public void setUsername(String username) {
-		user.clear();
-		user.sendKeys(username);
+		User.clear();
+		User.sendKeys(username);
 	}
 	
 	public void setPassword(String pass) {
-		password.clear();
-		password.sendKeys(pass);
+		Password.clear();
+		Password.sendKeys(pass);
 	}
 	
-	public void Click_On_SignBtn() {
-		signInbtn.click();
+	public void clickOnSignBtn() {
+		SignInbtn.click();
 	}
 	
 	
-	public boolean ValidateUser() {
+	public boolean validateUser() {
 		return Validate_User.isDisplayed();
 	}
 	

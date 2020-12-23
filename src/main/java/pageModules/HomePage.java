@@ -21,7 +21,7 @@ public class HomePage extends BasePage {
 	}
 
 	
-	public Object click_onTAb(String TabName) {
+	public Object clickOnTab(String TabName) {
 		HomeBtn.click();
 		if(TabName.equalsIgnoreCase("Attendance")) {
 			AttendanceTab.click();

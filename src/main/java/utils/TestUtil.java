@@ -30,10 +30,22 @@ public class TestUtil extends TestBase {
 	{
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DATE, date);
-	    SimpleDateFormat dateformat = new SimpleDateFormat("YYYY-mm-dd");  
+		System.out.println(c.getTime());
+	    SimpleDateFormat dateformat = new SimpleDateFormat("YYYY-MM-dd");  
 	    String strDate = dateformat.format( c.getTime()); 
+	    System.out.println(strDate);
 	    return strDate;
 	}
+	
+	
+
+public static String GetCurrentDate()
+{
+	Date date = new Date();  
+    SimpleDateFormat dateformat = new SimpleDateFormat("MM/dd/yyyy");  
+    String strDate = dateformat.format(date); 
+    return strDate;
+}
 
 		
 	//-------------------------------------------TimeStamp Function----------------------------------	
@@ -43,14 +55,20 @@ public class TestUtil extends TestBase {
 				cal.setTime(new Date());              
 				cal.add(Calendar.HOUR_OF_DAY, hour);  
 				System.out.println(cal.getTime());
-			    SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-mm-dd HH-mm-ss");
+			    SimpleDateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd hh:mm:ss");
 				String time = dateFormat.format(cal.getTime());
 				System.out.println(time);
 				return time;
 			}
 			 
 	//-----------------------------------------------Screenshot Function-------------------------------	
-		  
+		public static String Timestamp()
+		{
+			Date now = new Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy-hh-mm-ss");
+			String time = dateFormat.format(now);
+			return time.replace("-", "");
+		}
 		   
 			
 						

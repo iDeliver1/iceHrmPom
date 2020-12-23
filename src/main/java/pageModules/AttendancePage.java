@@ -7,6 +7,7 @@ import basePage.BasePage;
 import utils.TestUtil;
 
 public class AttendancePage extends BasePage {
+	
 	@FindBy(xpath = "//button[@id='punchButton']")
 	WebElement PunchBtn;
 	
@@ -19,32 +20,30 @@ public class AttendancePage extends BasePage {
 	@FindBy(xpath = "//button[contains(text(),'Save')]")
 	WebElement Save;
 	
-	@FindBy(xpath = "//button[@id='punchButton']")
-	WebElement Punchout;
-	
 	
 	public AttendancePage(WebDriver driver) {
 			super(driver);
 	}
 
 	
-	public void PunchSystem(String Status,int time) {
-		Time.clear();
-		Time.sendKeys(TestUtil.fTimestamp(time));
-		Note.clear();
-		Note.sendKeys(Status);
-		Save.click();
+	public void punchSystem(String Status,int time) {
+		PunchBtn.click();
+		if(Status.contains("IN")) {
+			Note.clear();
+			Note.sendKeys(Status);
+			Save.click();
+		}else {
+			Time.clear();
+			Time.sendKeys(TestUtil.fTimestamp(time));
+			Note.clear();
+			Note.sendKeys(Status);
+			Save.click();
+		}
+		
 		
 	}
 	
-	public void punch_in() {
-		PunchBtn.click();
-	}
 	
-	
-	public void punch_out() {
-		Punchout.click();
-	}
 	
 	
 	

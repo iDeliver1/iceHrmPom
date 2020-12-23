@@ -21,10 +21,9 @@ public class BasePage {
 
 
     public BasePage(WebDriver driver) {
-		// TODO Auto-generated constructor stub
     	 this.driver = driver;
          wait = new WebDriverWait(driver, TIMEOUT, POLLING);
-         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
+         PageFactory.initElements(driver, this);
 	}
 
 	protected void waitForElementToAppear(WebElement element) {
