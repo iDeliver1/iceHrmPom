@@ -3,10 +3,10 @@ package pageModules;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import basePage.BasePage;
+import basePage.PageBase;
 import utils.TestUtil;
 
-public class AttendancePage extends BasePage {
+public class AttendancePage extends PageBase {
 	
 	@FindBy(xpath = "//button[@id='punchButton']")
 	WebElement PunchBtn;

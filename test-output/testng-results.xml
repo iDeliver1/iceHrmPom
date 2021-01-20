@@ -1,48 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
     <line>
       <![CDATA[ Description Login Validation Actual User Must logged in Expected User Successfullylogged in]]>
     </line>
     <line>
-      <![CDATA[ Description Punch System Validation Actual User Must punch  in Expected User Successfully punched  in]]>
-    </line>
-    <line>
-      <![CDATA[ Description Leave Validation Actual User Must able to apply for leave Expected User Successfully apply for leave]]>
-    </line>
-    <line>
-      <![CDATA[ Description Punch System Validation Actual User Must punch out Expected User Successfully punched  out]]>
+      <![CDATA[ Description Leave System Validation Actual Admin must perform action on Employee leave list Expected Admin Sccessfully performed action on Employee leave list]]>
     </line>
   </reporter-output>
-  <suite name="Suite" duration-ms="61648" started-at="2020-12-23T16:00:42Z" finished-at="2020-12-23T16:01:44Z">
+  <suite name="Default suite" duration-ms="117478" started-at="2021-01-19T10:52:09Z" finished-at="2021-01-19T10:54:07Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="61648" started-at="2020-12-23T16:00:42Z" finished-at="2020-12-23T16:01:44Z">
-      <class name="testCases.ICEHRM_LoginTest">
-        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="beforeSuite" is-config="true" duration-ms="20952" started-at="2020-12-23T21:30:42Z" finished-at="2020-12-23T21:31:03Z">
+    <test name="Default test" duration-ms="117478" started-at="2021-01-19T10:52:09Z" finished-at="2021-01-19T10:54:07Z">
+      <class name="testCases.ICEHRM_AdminLevelTest">
+        <test-method status="PASS" signature="beforeSuite(org.testng.ITestContext)[pri:0, instance:testCases.ICEHRM_AdminLevelTest@3427b02d]" name="beforeSuite" is-config="true" duration-ms="40795" started-at="2021-01-19T16:22:09Z" finished-at="2021-01-19T16:22:50Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@6892cc6f]]>
+                <![CDATA[org.testng.TestRunner@6f798482]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method status="PASS" signature="init()[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="init" is-config="true" duration-ms="69" started-at="2020-12-23T21:31:03Z" finished-at="2020-12-23T21:31:03Z">
+        <test-method status="PASS" signature="init()[pri:0, instance:testCases.ICEHRM_AdminLevelTest@3427b02d]" name="init" is-config="true" duration-ms="118" started-at="2021-01-19T16:22:50Z" finished-at="2021-01-19T16:22:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- init -->
-        <test-method status="PASS" signature="Login_Test()[pri:1, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="Login_Test" duration-ms="8610" started-at="2020-12-23T21:31:03Z" finished-at="2020-12-23T21:31:12Z">
+        <test-method status="PASS" signature="loginTest()[pri:1, instance:testCases.ICEHRM_AdminLevelTest@3427b02d]" name="loginTest" duration-ms="14763" started-at="2021-01-19T16:22:50Z" finished-at="2021-01-19T16:23:05Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Login_Test -->
-        <test-method status="PASS" signature="CheckMethod_Status(org.testng.ITestResult)[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="CheckMethod_Status" is-config="true" duration-ms="730" started-at="2020-12-23T21:31:12Z" finished-at="2020-12-23T21:31:13Z">
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="checkMethodStatus(org.testng.ITestResult)[pri:0, instance:testCases.ICEHRM_AdminLevelTest@3427b02d]" name="checkMethodStatus" is-config="true" duration-ms="1388" started-at="2021-01-19T16:23:05Z" finished-at="2021-01-19T16:23:07Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Login_Test status=SUCCESS method=ICEHRM_LoginTest.Login_Test()[pri:1, instance:testCases.ICEHRM_LoginTest@604ed9f0] output={null}]]]>
+                <![CDATA[[TestResult name=loginTest status=SUCCESS method=ICEHRM_AdminLevelTest.loginTest()[pri:1, instance:testCases.ICEHRM_AdminLevelTest@3427b02d] output={null}]]]>
               </value>
             </param>
           </params>
@@ -51,66 +45,30 @@
               <![CDATA[ Description Login Validation Actual User Must logged in Expected User Successfullylogged in]]>
             </line>
           </reporter-output>
-        </test-method> <!-- CheckMethod_Status -->
-        <test-method status="PASS" signature="Punch_In_Test()[pri:2, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="Punch_In_Test" duration-ms="8072" started-at="2020-12-23T21:31:13Z" depends-on-methods="testCases.ICEHRM_LoginTest.Login_Test" finished-at="2020-12-23T21:31:21Z">
+        </test-method> <!-- checkMethodStatus -->
+        <test-method status="PASS" signature="punchInTest()[pri:2, instance:testCases.ICEHRM_AdminLevelTest@3427b02d]" name="punchInTest" duration-ms="58401" started-at="2021-01-19T16:23:07Z" depends-on-methods="testCases.ICEHRM_AdminLevelTest.loginTest" finished-at="2021-01-19T16:24:05Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Punch_In_Test -->
-        <test-method status="PASS" signature="CheckMethod_Status(org.testng.ITestResult)[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="CheckMethod_Status" is-config="true" duration-ms="160" started-at="2020-12-23T21:31:21Z" finished-at="2020-12-23T21:31:21Z">
+        </test-method> <!-- punchInTest -->
+        <test-method status="PASS" signature="checkMethodStatus(org.testng.ITestResult)[pri:0, instance:testCases.ICEHRM_AdminLevelTest@3427b02d]" name="checkMethodStatus" is-config="true" duration-ms="437" started-at="2021-01-19T16:24:05Z" finished-at="2021-01-19T16:24:05Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=Punch_In_Test status=SUCCESS method=ICEHRM_LoginTest.Punch_In_Test()[pri:2, instance:testCases.ICEHRM_LoginTest@604ed9f0] output={null}]]]>
+                <![CDATA[[TestResult name=punchInTest status=SUCCESS method=ICEHRM_AdminLevelTest.punchInTest()[pri:2, instance:testCases.ICEHRM_AdminLevelTest@3427b02d] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
             <line>
-              <![CDATA[ Description Punch System Validation Actual User Must punch  in Expected User Successfully punched  in]]>
+              <![CDATA[ Description Leave System Validation Actual Admin must perform action on Employee leave list Expected Admin Sccessfully performed action on Employee leave list]]>
             </line>
           </reporter-output>
-        </test-method> <!-- CheckMethod_Status -->
-        <test-method status="PASS" signature="Leave_Test()[pri:3, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="Leave_Test" duration-ms="13176" started-at="2020-12-23T21:31:21Z" depends-on-methods="testCases.ICEHRM_LoginTest.Punch_In_Test" finished-at="2020-12-23T21:31:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Leave_Test -->
-        <test-method status="PASS" signature="CheckMethod_Status(org.testng.ITestResult)[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="CheckMethod_Status" is-config="true" duration-ms="394" started-at="2020-12-23T21:31:34Z" finished-at="2020-12-23T21:31:34Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Leave_Test status=SUCCESS method=ICEHRM_LoginTest.Leave_Test()[pri:3, instance:testCases.ICEHRM_LoginTest@604ed9f0] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[ Description Leave Validation Actual User Must able to apply for leave Expected User Successfully apply for leave]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- CheckMethod_Status -->
-        <test-method status="PASS" signature="Punch_Out_Test()[pri:4, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="Punch_Out_Test" duration-ms="8351" started-at="2020-12-23T21:31:34Z" depends-on-methods="testCases.ICEHRM_LoginTest.Leave_Test" finished-at="2020-12-23T21:31:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- Punch_Out_Test -->
-        <test-method status="PASS" signature="CheckMethod_Status(org.testng.ITestResult)[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="CheckMethod_Status" is-config="true" duration-ms="114" started-at="2020-12-23T21:31:43Z" finished-at="2020-12-23T21:31:43Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=Punch_Out_Test status=SUCCESS method=ICEHRM_LoginTest.Punch_Out_Test()[pri:4, instance:testCases.ICEHRM_LoginTest@604ed9f0] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-            <line>
-              <![CDATA[ Description Punch System Validation Actual User Must punch out Expected User Successfully punched  out]]>
-            </line>
-          </reporter-output>
-        </test-method> <!-- CheckMethod_Status -->
-        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testCases.ICEHRM_LoginTest@604ed9f0]" name="afterSuite" is-config="true" duration-ms="977" started-at="2020-12-23T21:31:43Z" finished-at="2020-12-23T21:31:44Z">
+        </test-method> <!-- checkMethodStatus -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:testCases.ICEHRM_AdminLevelTest@3427b02d]" name="afterSuite" is-config="true" duration-ms="1463" started-at="2021-01-19T16:24:05Z" finished-at="2021-01-19T16:24:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- testCases.ICEHRM_LoginTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+      </class> <!-- testCases.ICEHRM_AdminLevelTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

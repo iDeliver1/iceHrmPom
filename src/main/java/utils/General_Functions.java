@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import basePage.TestBase;
+import pageModules.AdminLeavePage;
 import pageModules.AttendancePage;
 import pageModules.HomePage;
 import pageModules.LeavePage;
@@ -12,15 +13,16 @@ import pageModules.LoginPage;
 public class General_Functions extends TestBase {
 
 	LoginPage objLog;
-	WebDriver GFdriver;
+	WebDriver gfDriver;
 	HomePage objHome;
 	AttendancePage objAtte;
 	LeavePage objLeave;
+	AdminLeavePage objAdmLeave;
 	
 	
 	public General_Functions(WebDriver driver) {
-		this.GFdriver = driver;
-		objLog = new LoginPage(GFdriver);
+		this.gfDriver = driver;
+		objLog = new LoginPage(gfDriver);
 	}
 
 	
@@ -32,9 +34,9 @@ public class General_Functions extends TestBase {
 		try {
 			Assert.assertEquals(true, objLog.validateUser());
 			System.out.println(prop.get("error_Reson"));
-			return objHome = new HomePage(GFdriver);
+			return objHome = new HomePage(gfDriver);
 		}catch(Exception e) {
-			TestBase.Error_Reason = e.toString();
+			TestBase.errorReason = e.toString();
 			return null;
 		}
 		
@@ -49,9 +51,17 @@ public class General_Functions extends TestBase {
 				}
 				catch(Exception e) {
 				}
-		}else {
+		}else if(TabName.equalsIgnoreCase("Leave")) {
 			try {
 				objLeave =(LeavePage) objHome.clickOnTab(TabName);
+				}
+				catch(Exception e) {
+				}
+		}
+		
+		else  {
+			try {
+				objAdmLeave =(AdminLeavePage) objHome.clickOnTab(TabName);
 				}
 				catch(Exception e) {
 				}
@@ -84,6 +94,11 @@ public boolean iceHrmAttendancePage(String AttendanceWay,int time) {
 		
 	}
 	
+
+	public boolean empLeaveActivity() {
+	objAdmLeave.clickOnEmpployeeTab();
+	return objAdmLeave.clickOnLeaveTableAction();
+	}
 	
 	
 	public void iceHrmLeavePage(String Leave) throws InterruptedException {

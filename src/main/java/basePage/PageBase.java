@@ -11,7 +11,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
+public class PageBase {
 
 	private static  final int TIMEOUT = 10; //seconds
     private  static final int POLLING = 100; //milliseconds
@@ -20,7 +20,7 @@ public class BasePage {
     private WebDriverWait wait;
 
 
-    public BasePage(WebDriver driver) {
+    public PageBase(WebDriver driver) {
     	 this.driver = driver;
          wait = new WebDriverWait(driver, TIMEOUT, POLLING);
          PageFactory.initElements(driver, this);
@@ -38,7 +38,7 @@ public class BasePage {
         wait.until(ExpectedConditions.not(ExpectedConditions.textToBe(locator, text)));
     }
     
-    protected void MoveElement(WebElement element) {
+    protected void moveElement(WebElement element) {
 		Actions action = new Actions(driver);
 		action.moveToElement(element).build().perform();
 	}
@@ -56,7 +56,7 @@ public class BasePage {
     	 }
     } 
     
-    public void WaitDriver() {
+    public void waitDriver() {
     	driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
     }
 }

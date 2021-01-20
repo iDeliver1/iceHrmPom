@@ -3,9 +3,9 @@ package pageModules;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import basePage.BasePage;
+import basePage.PageBase;
 
-public class LoginPage extends BasePage {
+public class LoginPage extends PageBase {
 	@FindBy(xpath = "//button[contains(text(),'Log in')]")
 	WebElement SignInbtn;
 	

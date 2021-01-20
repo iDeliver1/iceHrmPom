@@ -4,11 +4,11 @@ package pageModules;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import basePage.BasePage;
+import basePage.PageBase;
 import utils.TestUtil;
 
 
-public class LeavePage extends BasePage {
+public class LeavePage extends PageBase {
 
 	@FindBy(xpath = "//button[contains(text(),'Apply Leave')]")
 	WebElement ApplyLeavebtn;
@@ -65,7 +65,7 @@ public class LeavePage extends BasePage {
 			TestUtil.SelectItem(SelectLeave, 2);
 		}catch(Exception e  ) {
 			driver.get(driver.getCurrentUrl());
-			WaitDriver();
+			waitDriver();
 			ApplyLeavebtn.click();
 			
 			TestUtil.SelectItem(SelectLeave, 2);

@@ -24,16 +24,15 @@ import utils.WebEventListener;
 public class TestBase {
 
 	protected WebDriver driver;
-	public static String browserName = "chrome",url,Desc,Actual,PassExp,FailExp,Error_Reason;
-	public String Report_Name;
-	protected String username;
-	protected String password,cause;
+	public static String browserName = "chrome",url,desc,actual,passExp,failExp,errorReason;
+	public String reportName; //need to change attribute name
+	protected String userName,password,cause;
 	public  Properties prop;
 	public static final Logger log = Logger.getLogger(TestBase.class.getName());
-	public static EventFiringWebDriver e_driver;
+	public static EventFiringWebDriver eDriver;
 	public static WebEventListener eventListener;
-	public Object checkobjMethod;
-	public boolean checkblnmethod;
+	public Object checkObjMethod;
+	public boolean checkBlnMethod;
 	
 	
 	public TestBase() {
@@ -49,7 +48,7 @@ public class TestBase {
 			e.printStackTrace();
 		}
 		url=prop.getProperty("url");
-		this.username = prop.getProperty("username");
+		this.userName = prop.getProperty("username");
 		this.password=prop.getProperty("password");
 		
 	}
@@ -63,10 +62,10 @@ public class TestBase {
 		System.out.println("Browser Version- "+BrowserVersion);
 		WebDriverManager.chromedriver().version(BrowserVersion).setup();
 		driver = new ChromeDriver(); 
-		e_driver = new EventFiringWebDriver(driver);
+		eDriver = new EventFiringWebDriver(driver);
 		eventListener = new WebEventListener();
-		e_driver.register(eventListener);
-		driver = e_driver;
+		eDriver.register(eventListener);
+		driver = eDriver;
 	
 		try {
 			Excel_Libraries.createExcel(getClass().getSimpleName());
@@ -89,11 +88,11 @@ public class TestBase {
 		}
 	
 	
-	public void Reporting_Description(String ReportDesc,String ReportingActual,String ReportingPassExp,String ReportingFailexp) {
-		TestBase.Desc=ReportDesc;
-		TestBase.Actual=ReportingActual;
-		TestBase.PassExp=ReportingPassExp;
-		TestBase.FailExp = ReportingFailexp;
+	public void reportingDescription(String ReportDesc,String ReportingActual,String ReportingPassExp,String ReportingFailexp) {
+		TestBase.desc=ReportDesc;
+		TestBase.actual=ReportingActual;
+		TestBase.passExp=ReportingPassExp;
+		TestBase.failExp = ReportingFailexp;
 
 	}
 
@@ -109,15 +108,15 @@ public class TestBase {
 
 		if(result.getStatus()==ITestResult.SUCCESS) {
 			
-			Extent_Report.Report("Pass", Desc, Actual, PassExp);
-			String ResultRe = " Description "+Desc+" Actual "+Actual+" Expected "+PassExp;
+			Extent_Report.Report("Pass", desc, actual, passExp);
+			String ResultRe = " Description "+desc+" Actual "+actual+" Expected "+passExp;
 			log(ResultRe);
 			
 			
 		}
 		else if(result.getStatus()==ITestResult.FAILURE) {
-			Extent_Report.Report("Fail", Desc, Actual, FailExp);
-			String ResultRe = " Description "+Desc+" Actual "+Actual+" Expected "+FailExp +" due to "+cause;
+			Extent_Report.Report("Fail", desc, actual, failExp);
+			String ResultRe = " Description "+desc+" Actual "+actual+" Expected "+failExp +" due to "+cause;
 			
 			log.warning(ResultRe);
 			

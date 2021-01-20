@@ -3,15 +3,17 @@ package pageModules;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import basePage.BasePage;
+import basePage.PageBase;
 
-public class HomePage extends BasePage {
+public class HomePage extends PageBase {
 	@FindBy(xpath = "//a[@id='atteandanceLink']")
 	WebElement AttendanceTab;
 	
 	@FindBy(xpath = "//a[@class='logo']")
 	public WebElement HomeBtn;
 	
+	@FindBy(xpath = "//a[@id='leaveLink']")
+	public WebElement adminLeaveTab;
 	
 	@FindBy(xpath = "//a[@id='leavesLink']")
 	WebElement LeaveTab;
@@ -31,8 +33,12 @@ public class HomePage extends BasePage {
 			LeaveTab.click();
 			 return new LeavePage(driver);
 		}
+		else if(TabName.equalsIgnoreCase("Admin Leave")) {
+			adminLeaveTab.click();
+			 return new AdminLeavePage(driver);
+		}
 		else
-			return false;
+			return null;
 		
 	}
 }
