@@ -26,7 +26,7 @@ public class ICEHRM_AdminLevelTest extends TestBase {
 	
 	
 	@Test(priority = 2,dependsOnMethods="loginTest")	
-	public void punchInTest() {
+	public void adminLeavePageTest() {
 		objGen.iceHrmHomepage("Admin Leave");
 		checkBlnMethod = objGen.empLeaveActivity();
 		reportingDescription("Leave System Validation", "Admin must perform action on Employee leave list", "Admin Sccessfully performed action on Employee leave list", "Unable to perfrom action");

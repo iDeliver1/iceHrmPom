@@ -5,6 +5,7 @@ import org.testng.Assert;
 
 import basePage.TestBase;
 import pageModules.AdminLeavePage;
+import pageModules.AdminTravelPage;
 import pageModules.AttendancePage;
 import pageModules.HomePage;
 import pageModules.LeavePage;
@@ -18,6 +19,7 @@ public class General_Functions extends TestBase {
 	AttendancePage objAtte;
 	LeavePage objLeave;
 	AdminLeavePage objAdmLeave;
+	AdminTravelPage objAdmTravel;
 	
 	
 	public General_Functions(WebDriver driver) {
@@ -54,6 +56,13 @@ public class General_Functions extends TestBase {
 		}else if(TabName.equalsIgnoreCase("Leave")) {
 			try {
 				objLeave =(LeavePage) objHome.clickOnTab(TabName);
+				}
+				catch(Exception e) {
+				}
+		}
+		else if(TabName.contains("Travel")) {
+			try {
+				objAdmTravel =(AdminTravelPage) objHome.clickOnTab(TabName);
 				}
 				catch(Exception e) {
 				}
@@ -96,9 +105,15 @@ public boolean iceHrmAttendancePage(String AttendanceWay,int time) {
 	
 
 	public boolean empLeaveActivity() {
-	objAdmLeave.clickOnEmpployeeTab();
-	return objAdmLeave.clickOnLeaveTableAction();
+	return objAdmTravel.empTravelAction();
 	}
+	
+	
+	
+	public boolean empTravelActivity() {
+		
+		return objAdmLeave.clickOnLeaveTableAction();
+		}
 	
 	
 	public void iceHrmLeavePage(String Leave) throws InterruptedException {
