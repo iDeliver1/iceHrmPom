@@ -3,7 +3,21 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test verbose="2" name="Default test">
     <classes>
-      <class name="testCases.ICEHRM_AdminLevelTest"/>
+      <class name="testCases.ICEHRM_AdminTravelTest"/>
     </classes>
   </test> <!-- Default test -->
+  <test name="Default test(failed)">
+    <classes>
+      <class name="testCases.ICEHRM_AdminTravelTest">
+        <methods>
+          <include name="init"/>
+          <include name="checkMethodStatus"/>
+          <include name="afterSuite"/>
+          <include name="loginTest"/>
+          <include name="beforeSuite"/>
+          <include name="adminTravelPageTest"/>
+        </methods>
+      </class> <!-- testCases.ICEHRM_AdminTravelTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

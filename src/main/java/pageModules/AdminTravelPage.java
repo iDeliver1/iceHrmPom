@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 import basePage.PageBase;
 
@@ -17,6 +18,18 @@ public class AdminTravelPage extends PageBase {
 	
 	@FindBy(xpath = "//*[@id=\"EmployeeTravelRecord\"]/div[2]/div/table/tbody/tr/td/div/img")
 	public List <WebElement> empTravelTableActionButton;
+	
+	@FindBy(xpath = "//select[@id='travelrequest_status']")
+	public WebElement empTravelStatus;
+	
+	@FindBy(xpath = "//textarea[@id='travelrequest_reason']")
+	public WebElement empTravelNote;
+	
+	@FindBy(xpath = "//button[contains(text(),'Change TravelRequest Status')]")
+	public WebElement empTravelButton;
+	
+	@FindBy(xpath = "//button[contains(text(),'Ok')]")
+	public WebElement okBtn;
 
 	int iTravelTableCount,iIterate;
 	
@@ -31,9 +44,15 @@ public class AdminTravelPage extends PageBase {
 			if( !empNoTravelTable.getText().equalsIgnoreCase("No data available in table")) {
 				iTravelTableCount = empTravelTable.size();
 				
-				for(iIterate=0;iIterate<=iTravelTableCount;iIterate++) {
+				for(iIterate=0;iIterate<iTravelTableCount;iIterate++) {
 					
-					empTravelTableActionButton.get(1).click();
+					empTravelTableActionButton.get(2).click();
+					Select leaveStatus =new Select(empTravelStatus);
+					leaveStatus.selectByIndex(0);
+					empTravelNote.sendKeys("Ok");
+					empTravelButton.click();
+					okBtn.click();
+					
 				}
 				return true;
 			}else {

@@ -42,8 +42,8 @@ public class HomePage extends PageBase {
 			 return new AdminLeavePage(driver);
 		}
 		else if(TabName.equalsIgnoreCase("Admin Travel")) {
-			adminLeaveTab.click();
-			 return new AdminLeavePage(driver);
+			TravelTab.click();
+			 return new AdminTravelPage(driver);
 		}
 		else
 			return null;

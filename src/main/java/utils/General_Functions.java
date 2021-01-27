@@ -105,14 +105,16 @@ public boolean iceHrmAttendancePage(String AttendanceWay,int time) {
 	
 
 	public boolean empLeaveActivity() {
-	return objAdmTravel.empTravelAction();
+		objAdmLeave.clickOnEmpployeeTab();
+		return objAdmLeave.clickOnLeaveTableAction();
+	
 	}
 	
 	
 	
 	public boolean empTravelActivity() {
 		
-		return objAdmLeave.clickOnLeaveTableAction();
+		return objAdmTravel.empTravelAction();
 		}
 	
 	
