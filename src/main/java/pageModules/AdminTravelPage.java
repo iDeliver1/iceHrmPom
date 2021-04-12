@@ -31,7 +31,7 @@ public class AdminTravelPage extends PageBase {
 	@FindBy(xpath = "//button[contains(text(),'Ok')]")
 	public WebElement okBtn;
 
-	int iTravelTableCount,iIterate;
+	int iTravelTableCount,iIterate,iAction= 2;
 	
 	public AdminTravelPage( WebDriver driver) {
 		super(driver);
@@ -46,13 +46,14 @@ public class AdminTravelPage extends PageBase {
 				
 				for(iIterate=0;iIterate<iTravelTableCount;iIterate++) {
 					
-					empTravelTableActionButton.get(2).click();
+					empTravelTableActionButton.get(iAction).click();
 					Select leaveStatus =new Select(empTravelStatus);
 					leaveStatus.selectByIndex(0);
 					empTravelNote.sendKeys("Ok");
 					empTravelButton.click();
 					okBtn.click();
-					
+				
+					iAction=iAction+4;
 				}
 				return true;
 			}else {

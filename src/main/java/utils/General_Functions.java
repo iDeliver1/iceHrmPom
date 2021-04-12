@@ -35,7 +35,7 @@ public class General_Functions extends TestBase {
 		
 		try {
 			Assert.assertEquals(true, objLog.validateUser());
-			System.out.println(prop.get("error_Reson"));
+		//	System.out.println(prop.get("error_Reson"));
 			return objHome = new HomePage(gfDriver);
 		}catch(Exception e) {
 			TestBase.errorReason = e.toString();
