@@ -3,7 +3,7 @@
 <suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="testCases.ICEHRM_LoginTest"/>
+      <class name="testCases.ICEHRM_AdminLevelTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
