@@ -1,1 +1,1 @@
- clean install.
+mvn clean install
