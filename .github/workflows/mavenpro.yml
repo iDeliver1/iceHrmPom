@@ -25,3 +25,4 @@ jobs:
     #- name: Test with Maven
       #run:  mvn -Dtest="test/*Test" test
       #run: mvn '-Dtest=test.*Test' test
+
